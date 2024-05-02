@@ -19,12 +19,19 @@ class ViewController: UIViewController {
     @IBOutlet var greenNumber: UILabel!
     @IBOutlet var blueNumber: UILabel!
     
+    func colorMixAction() {
+        colorMix.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value)/255,
+            green: CGFloat(greenSlider.value)/255,
+            blue: CGFloat(blueSlider.value)/255, alpha: 4)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         
+      
         // MARK: Label Red
         redNumber.text = ""
         redNumber.textAlignment = .center
@@ -64,29 +71,25 @@ class ViewController: UIViewController {
         blueSlider.minimumTrackTintColor = .blue
         
         blueNumber.text = String(Int(blueSlider.value))
+        
+        colorMixAction()
+        
+        
     }
         @IBAction func redSliderAction() {
             redNumber.text = String(Int(redSlider.value))
-            colorMix.backgroundColor = UIColor(
-                red: CGFloat(redSlider.value)/255,
-                green: CGFloat(greenSlider.value)/255,
-                blue: CGFloat(blueSlider.value)/255, alpha: 1)
+            colorMixAction()
+            
         }
         
         @IBAction func greenSliderAction() {
             greenNumber.text = String(Int(greenSlider.value))
-            colorMix.backgroundColor = UIColor(
-                red: CGFloat(redSlider.value)/255,
-                green: CGFloat(greenSlider.value)/255,
-                blue: CGFloat(blueSlider.value)/255, alpha: 1)
+            colorMixAction()
         }
         
         @IBAction func blueSliderAction() {
             blueNumber.text = String(Int(blueSlider.value))
-            colorMix.backgroundColor = UIColor(
-                red: CGFloat(redSlider.value)/255,
-                green: CGFloat(greenSlider.value)/255,
-                blue: CGFloat(blueSlider.value)/255, alpha: 1)
+            colorMixAction()
         }
 }
 
